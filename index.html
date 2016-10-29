@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tags stats</title>
+	<link type="text/css" rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+	<!--
+	<link type="text/css" rel="stylesheet" href="styles/styles.css"/>
+	 -->
+	
+	<script type="text/javascript" src="node_modules/handlebars/dist/handlebars.runtime.js"></script>
+	<script type="text/javascript" src="node_modules/handlebars/dist/handlebars.js"></script>
+	<script type="text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="head" title="food"><h2>Фото по тегу food</h2></div>
+		
+	</div>
+		<div class="loading">Loading... Wait</div>
+		<div class="loaded-info"></div>
+		<script id="photo-entry-template" type="text/x-handlebars-template">
+			<div class="photo-entry">
+				{{#each objects}}
+					<div class="photo-entity">
+						<div class="photo">
+							<img src="{{src_big}}"/>
+						</div>
+						<div class="photo-descr">
+						{{{text}}}
+						</div>
+						<p class="photo-posttime">{{createTime}}</p>
+					</div>
+				{{/each}}
+			</div>
+		</script>
+
+	<script type="text/javascript" src="script/app.js"></script>
+</body>
+</html>

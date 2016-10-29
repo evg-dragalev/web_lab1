@@ -1,0 +1,1 @@
+Перед запуском server.js сделать npm install
