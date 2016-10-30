@@ -1,0 +1,52 @@
+.wrapper{
+	background-color: #F7F7F7;
+}
+.head{
+
+	height: 90px;
+	background-color: #fff;
+	box-shadow: 0 0 5px 2px #5F5F60;
+	font-family: Calibri;
+}
+.head-text{
+	margin-top: 5px;
+}
+.refresher{
+	width: 40px;
+	height: 40px;
+	display:block;
+	border: none;
+	background-color: #CFE7FB;
+	box-shadow: 0 0 5px 2px #5F5F60;
+	border-radius: 50%;
+	background-position: 50%, 50%;
+	background-repeat: no-repeat;
+	position: fixed;
+	top: 110px;
+	right: 10%;
+	text-align: center;
+}
+.refresher > p{
+	margin: 0 0 1px;
+	font-family: Calibri;
+	font-size: 18px;
+}
+.photo-entity{
+	padding-top: 30px;
+	padding-bottom: 30px; 
+	background-color: white;
+	box-shadow: 0 0 5px 2px #5F5F60;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.photo > img{
+	display: block;
+	margin: 0 auto;
+}
+.photo-descr{
+	margin-top: 30px;
+	font: 18px Calibri;
+}
+.photo-posttime{
+	text-align: right;
+}

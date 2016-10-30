@@ -3,38 +3,41 @@
 <head>
 	<title>Tags stats</title>
 	<link type="text/css" rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
-	<!--
-	<link type="text/css" rel="stylesheet" href="styles/styles.css"/>
-	 -->
-	
+	<link type="text/css" rel="stylesheet" href="styles/styles.css"/>	
 	<script type="text/javascript" src="node_modules/handlebars/dist/handlebars.runtime.js"></script>
 	<script type="text/javascript" src="node_modules/handlebars/dist/handlebars.js"></script>
 	<script type="text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
 	<script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 <body>
-	<div class="container">
-		<div class="head"><h2>Поиск фото по слову New York</h2></div>
-		
-	</div>
-		<div class="loading">Loading... Wait</div>
-		<div class="loaded-info"></div>
-		<script id="photo-entry-template" type="text/x-handlebars-template">
-			<div class="photo-entry">
-				{{#each objects}}
-					<div class="photo-entity">
-						<div class="photo">
-							<img src="{{src_big}}"/>
-						</div>
-						<div class="photo-descr">
-						{{{text}}}
-						</div>
-						<p class="photo-posttime">{{createTime}}</p>
-					</div>
-				{{/each}}
+	<button class="refresher" onclick="onRefreshButtonClick()"></button>
+	<div class="wrapper">
+			<div class="head col-md-12">
+				<div class="head-text col-md-8 col-md-offset-2">
+					<h2>Vk photo search by words "New York"</h2>
+				</div>
 			</div>
-		</script>
-
-	<script type="text/javascript" src="script/app.js"></script>
+			<div class="loaded-info"></div>
+			<script id="photo-entry-template" type="text/x-handlebars-template">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="photo-entry col-md-8 col-md-offset-2">
+							{{#each objects}}
+								<div class="photo-entity clearfix">
+									<div class="photo">
+										<img src="{{src_big}}"/>
+									</div>
+									<div class="photo-descr col-md-10 col-md-offset-1">
+									{{{text}}}
+									<p class="photo-posttime">{{createTime}}</p>
+									</div>
+								</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			</script>
+	</div>
 </body>
+<script type="text/javascript" src="script/app.js"></script>
 </html>
