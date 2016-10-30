@@ -1,7 +1,7 @@
 'use strict';
 
 const POSTS_MAX_COUNT = 30;
-const SEARCH_WORD = "Привет";
+const SEARCH_WORD = "Привет"
 
 var responseData = [];
 
@@ -57,7 +57,6 @@ function renderingPhotoPosts (){
 				$('.refresher').css('background-color', '#FFDBDB');
    				console.log("Server returned error with code "+data.error.error_code+" : "+data.error.error_msg);
    			} else if (data.response[0]==0) {
-				$('.refresher').css('background-color', '#FFDBDB');
    				console.log("Got empty array from api. Wait for a while");
    			} else {
 				$('.refresher').css('background-color', '#CFE7FB');
