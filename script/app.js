@@ -33,7 +33,7 @@ var displayedOnce = false;
 function refresher(responseData){
 	var html = template(responseData);
 	$(".photo-entry").empty();
-	$('.loaded-info').append(template({objects:responseData.reverse()}));
+	$('.loaded-info').append(template({objects:responseData}));
 	counterNew.reset();
 }
 
@@ -59,28 +59,32 @@ function renderingPhotoPosts (){
    			} else if (data.response[0]==0) {
    				console.log("Got empty array from api. Wait for a while");
    			} else {
-				$('.refresher').css('background-color', '#CFE7FB');
+   				if (counterNew.value>0){
+					$('.refresher').css('background-color', '#D7FFD9');
+   				} else {
+   					$('.refresher').css('background-color', '#CFE7FB');	
+   				};
+				responseData.reverse();
 			   	data.response.reverse().forEach( function(entity) {
-				if (entity.pid && lastPostTime < entity.created){
-					responseData.reverse();
-					responseData.push(entity);
-					counterNew.add();							lastPostTime = entity.created;
-					entity.createTime = (new Date(entity.created*1000)).toLocaleString("ru",{
-						year: 'numeric',
-						month: 'long',
-						day: 'numeric',
-						timezone: 'UTC',
-						hour: 'numeric',
-						minute: 'numeric',
-						second: 'numeric'
-					})
-				}
+					if (entity.pid && lastPostTime < entity.created){
+						responseData.push(entity);
+						counterNew.add();							lastPostTime = entity.created;
+						entity.createTime = (new Date(entity.created*1000)).toLocaleString("ru",{
+							year: 'numeric',
+							month: 'long',
+							day: 'numeric',
+							timezone: 'UTC',
+							hour: 'numeric',
+							minute: 'numeric',
+							second: 'numeric'
+						})
+					}
+				});
 				responseData.reverse();
 				while (responseData.length > POSTS_MAX_COUNT){
 					responseData.pop();
 				}
 				$('.refresher').css('background-image', 'none');
-				});
 				console.log("Got data on search word "+SEARCH_WORD+" refreshing responseDatadata");
 				console.log(responseData);
 				if (!displayedOnce){
